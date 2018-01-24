@@ -13,22 +13,15 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp',(err, db)=>{
   }else{
     console.log('connected to MongoDB server');
   }
-    db.collection('Info').insertOne({
-      name: 'Mohamed',
-      age: 25,
-      location: 'Egypt',
-      activities:[
-        {activity:'gymnastic'},
-        {activity:'reading'},
-        {activity:'writing'}
-      ]
-    },(err, res)=>{
-        if(err){
-              return console.log('Unable to insert Info');
-        }else {
-          console.log(res.ops[0]._id.getTimestamp());
-        }
-    });
-    db.close();
-
+db.collection('Info').findOneAndUpdate({
+  _id :new ObjectID('5a5f32f1dbcbb3181f050d0e')
+},{
+  $inc:{age:1}
+},{
+  returnOriginal : false
+})
+.then((result)=>{
+  console.log(result);
+})
+    // db.close()
 });
