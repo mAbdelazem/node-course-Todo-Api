@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var user =  mongoose.model('Users',{
+var Users =  mongoose.model('Users',{
   User: {
     type: String,
     required: true,
@@ -13,8 +13,8 @@ var user =  mongoose.model('Users',{
     trim: true
   }
 });
-var newUser = new user({
+var newUser = new Users({
   User: '  Zeemo',
   email:'moh_zeemo@hotmail.com   '
 });
-module.exports = {user};
+module.exports = {Users};
