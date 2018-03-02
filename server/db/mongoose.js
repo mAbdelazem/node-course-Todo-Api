@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var {Db} = require('./../../playground/connectionDB.js');
 mongoose.Promise =global.Promise;
-mongoose.connect('mongodb://localhost:27017/TodoApp');
+mongoose.connect(Db);
 module.exports = {mongoose};
